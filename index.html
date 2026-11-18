@@ -29,8 +29,6 @@
             align-items: center;
             overflow: hidden;
         }
-
-        /* Phone Container */
         .phone {
             width: 340px;
             height: 700px;
@@ -42,8 +40,6 @@
             transform: scale(0.95);
             transition: transform 0.3s ease;
         }
-
-        /* Screen Inner */
         .screen {
             width: 100%;
             height: 100%;
@@ -56,16 +52,12 @@
             overflow: hidden;
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
-
-        /* Elegant Overlay */
         .elegant-overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(to bottom, rgba(30,0,50,0.3) 0%, rgba(160,40,90,0.45) 100%);
             z-index: 1;
         }
-
-        /* Floating Sparkles Animation */
         .sparkle {
             position: absolute;
             bottom: -20px;
@@ -75,23 +67,18 @@
             pointer-events: none;
             user-select: none;
         }
-
         @keyframes floatUp {
             0% { transform: translateY(0) scale(0.8); opacity: 0; }
             20% { opacity: 0.9; }
             80% { opacity: 0.9; }
             100% { transform: translateY(-700px) scale(1.2); opacity: 0; }
         }
-
-        /* Glassmorphism */
         .glass-panel {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        /* App Icon Interaction */
         .app-btn {
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -99,8 +86,6 @@
             transform: scale(0.85);
             filter: brightness(0.8);
         }
-
-        /* Lock Screen swipe hint animation */
         @keyframes bounce-up {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -108,18 +93,12 @@
         .animate-bounce-up {
             animation: bounce-up 2s infinite;
         }
-
-        /* Views */
         #lock-screen { z-index: 10; }
         #home-screen { z-index: 5; opacity: 0; pointer-events: none; }
         #app-view { z-index: 20; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-
         .app-open { transform: translateY(0) !important; }
-        
         .hide-screen { opacity: 0; pointer-events: none; transform: scale(1.05); }
         .show-screen { opacity: 1 !important; pointer-events: auto !important; transform: scale(1) !important; }
-
-        /* Notch */
         .notch {
             position: absolute;
             top: 0;
@@ -142,13 +121,9 @@
         <!-- Lock Screen -->
         <div id="lock-screen" class="screen flex flex-col items-center pt-24 pb-8 transition-all duration-500">
             <div class="elegant-overlay"></div>
-            
-            <!-- Sparkles Background -->
             <div id="sparkles-container"></div>
 
             <div class="relative z-10 text-white text-center w-full px-6 flex flex-col h-full">
-                
-                <!-- Time & Date -->
                 <div class="mt-4">
                     <div class="text-sm font-medium tracking-wider mb-2 opacity-90" id="date-display">الخميس، ١٩ نوفمبر</div>
                     <div class="flex justify-center items-end gap-1">
@@ -157,12 +132,9 @@
                     </div>
                 </div>
 
-                <!-- Notifications -->
                 <div class="mt-8 space-y-3 w-full">
                     <div class="glass-panel rounded-2xl p-4 text-right flex items-center gap-3">
-                        <div class="bg-pink-500 w-8 h-8 rounded-full flex items-center justify-center shrink-0">
-                            ✨
-                        </div>
+                        <div class="bg-pink-500 w-8 h-8 rounded-full flex items-center justify-center shrink-0">✨</div>
                         <div>
                             <div class="font-bold text-sm">إهداء لطيف</div>
                             <div class="text-xs opacity-80">وعد الحق، لديكِ رسائل جميلة وأغنية راقية...</div>
@@ -171,13 +143,10 @@
                 </div>
 
                 <div class="mt-auto flex flex-col items-center">
-                    <!-- Unlock mechanism -->
                     <button id="unlock-btn" class="mb-8 flex flex-col items-center text-white/80 animate-bounce-up cursor-pointer p-4">
                         <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
                         <span class="text-sm tracking-wide">اسحبي للفتح يا وعد الحق ✨</span>
                     </button>
-
-                    <!-- Credits -->
                     <div class="text-[10px] text-white/50 font-medium">إعداد قيس جازي</div>
                 </div>
             </div>
@@ -186,9 +155,8 @@
         <!-- Home Screen -->
         <div id="home-screen" class="screen">
             <div class="elegant-overlay" style="background: linear-gradient(to bottom, rgba(10,5,20,0.5) 0%, rgba(100,20,50,0.6) 100%);"></div>
-            
+
             <div class="relative z-10 w-full h-full pt-10 pb-6 px-5 flex flex-col">
-                <!-- Status Bar -->
                 <div class="flex justify-between items-center text-white text-xs mb-8 px-2 font-medium">
                     <span id="status-time">12:47</span>
                     <div class="flex gap-2">
@@ -198,9 +166,7 @@
                     </div>
                 </div>
 
-                <!-- Apps Grid -->
                 <div class="grid grid-cols-4 gap-y-6 gap-x-4">
-                    <!-- App 1: Messages -->
                     <button class="app-btn flex flex-col items-center gap-1" onclick="openApp('messages')">
                         <div class="w-14 h-14 bg-gradient-to-tr from-green-400 to-green-600 rounded-2xl flex items-center justify-center shadow-lg">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
@@ -208,7 +174,6 @@
                         <span class="text-white text-xs font-medium">الرسائل</span>
                     </button>
 
-                    <!-- App 2: Gallery -->
                     <button class="app-btn flex flex-col items-center gap-1" onclick="openApp('gallery')">
                         <div class="w-14 h-14 bg-gradient-to-tr from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -216,7 +181,6 @@
                         <span class="text-white text-xs font-medium">المعرض</span>
                     </button>
 
-                    <!-- App 3: Music -->
                     <button class="app-btn flex flex-col items-center gap-1" onclick="openApp('music')">
                         <div class="w-14 h-14 bg-gradient-to-tr from-red-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
@@ -224,7 +188,6 @@
                         <span class="text-white text-xs font-medium">الموسيقى</span>
                     </button>
 
-                    <!-- App 4: Weather -->
                     <button class="app-btn flex flex-col items-center gap-1" onclick="openApp('weather')">
                         <div class="w-14 h-14 bg-gradient-to-tr from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
@@ -232,7 +195,6 @@
                         <span class="text-white text-xs font-medium">الطقس</span>
                     </button>
 
-                    <!-- App 5: Maps -->
                     <button class="app-btn flex flex-col items-center gap-1" onclick="openApp('maps')">
                         <div class="w-14 h-14 bg-gradient-to-tr from-green-300 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
@@ -240,15 +202,13 @@
                         <span class="text-white text-xs font-medium">الخرائط</span>
                     </button>
 
-                    <!-- App 6: Notes -->
                     <button class="app-btn flex flex-col items-center gap-1" onclick="openApp('notes')">
                         <div class="w-14 h-14 bg-gradient-to-tr from-yellow-300 to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg text-yellow-900">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                         </div>
                         <span class="text-white text-xs font-medium">ملاحظات</span>
                     </button>
-                    
-                    <!-- App 7: Calendar -->
+
                     <button class="app-btn flex flex-col items-center gap-1" onclick="openApp('calendar')">
                         <div class="w-14 h-14 bg-gradient-to-tr from-red-400 to-red-600 rounded-2xl flex flex-col items-center justify-center shadow-lg text-white">
                             <span class="text-[10px] font-bold uppercase mt-1" id="cal-month">نوفمبر</span>
@@ -256,8 +216,7 @@
                         </div>
                         <span class="text-white text-xs font-medium">التقويم</span>
                     </button>
-                    
-                    <!-- App 8: About -->
+
                     <button class="app-btn flex flex-col items-center gap-1" onclick="openApp('about')">
                         <div class="w-14 h-14 bg-gradient-to-tr from-gray-600 to-gray-800 rounded-2xl flex items-center justify-center shadow-lg">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -266,7 +225,6 @@
                     </button>
                 </div>
 
-                <!-- Dock -->
                 <div class="mt-auto mb-2 w-full">
                     <div class="glass-panel rounded-3xl p-3 flex justify-around items-center">
                         <button class="app-btn w-12 h-12 bg-gradient-to-tr from-green-400 to-green-500 rounded-2xl flex items-center justify-center shadow-md" onclick="openApp('phone')">
@@ -283,9 +241,8 @@
             </div>
         </div>
 
-        <!-- App View (Modal) -->
+        <!-- App View -->
         <div id="app-view" class="screen bg-white text-gray-800 flex flex-col">
-            <!-- App Header -->
             <div class="pt-12 pb-4 px-4 border-b flex items-center gap-3 bg-gray-50/90 backdrop-blur-md relative z-10 shadow-sm">
                 <button onclick="closeApp()" class="text-blue-500 flex items-center text-sm font-medium hover:text-blue-700 transition">
                     <svg class="w-5 h-5 mr-1 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -294,14 +251,10 @@
                 <div class="font-bold text-lg flex-1 text-center pr-8" id="app-title">التطبيق</div>
             </div>
 
-            <!-- App Content -->
             <div class="flex-1 overflow-y-auto p-6 relative bg-pink-50/30">
-                <div id="app-content" class="relative z-10 text-center flex flex-col items-center justify-center min-h-[60%] mt-6">
-                    <!-- Content injected via JS -->
-                </div>
+                <div id="app-content" class="relative z-10 text-center flex flex-col items-center justify-center min-h-[60%] mt-6"></div>
             </div>
-            
-            <!-- Home Indicator line -->
+
             <div class="w-full h-8 flex justify-center items-center bg-transparent absolute bottom-0 z-50 cursor-pointer" onclick="closeApp()">
                 <div class="w-1/3 h-1 bg-gray-300 rounded-full"></div>
             </div>
@@ -309,48 +262,44 @@
     </div>
 
     <script>
-        // --- إعداد مشغل الأغنية (متوافق مع GitHub) ---
-        // تأكد من رفع ملف الأغنية باسم: آه يا حلو.mp3 في نفس المجلد مع index.html
-        const songAudio = new Audio(encodeURI('آه يا حلو.mp3'));
+        // --- مشغل الأغنية: الملف song.mp3 في نفس مجلد index.html ---
+        const songAudio = new Audio('song.mp3');
         songAudio.loop = true;
+        songAudio.preload = 'auto';
         let isPlaying = false;
 
         window.toggleMusic = function() {
             if (isPlaying) {
                 songAudio.pause();
                 isPlaying = false;
+                updateMusicUI();
             } else {
-                songAudio.play().catch(e => {
-                    console.log("تعذر تشغيل الأغنية تلقائياً:", e);
-                    alert("تأكد من وجود ملف 'آه يا حلو.mp3' في نفس المجلد مع index.html على GitHub.");
+                songAudio.play().then(() => {
+                    isPlaying = true;
+                    updateMusicUI();
+                }).catch(e => {
+                    console.log("تعذر تشغيل الأغنية:", e);
+                    isPlaying = false;
+                    updateMusicUI();
+                    alert("تأكد من وجود ملف 'song.mp3' في نفس المجلد مع index.html على GitHub.");
                 });
-                isPlaying = true;
             }
-            updateMusicUI();
         };
 
         window.updateMusicUI = function() {
             const playIcon = document.getElementById('music-play-icon');
             const recordPlayer = document.getElementById('music-record-player');
-            
-            if (playIcon) {
-                if (isPlaying) {
-                    playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
-                } else {
-                    playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
-                }
-            }
 
+            if (playIcon) {
+                playIcon.innerHTML = isPlaying
+                    ? '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>'
+                    : '<path d="M8 5v14l11-7z"/>';
+            }
             if (recordPlayer) {
-                if (isPlaying) {
-                    recordPlayer.classList.add('animate-spin-slow');
-                } else {
-                    recordPlayer.classList.remove('animate-spin-slow');
-                }
+                recordPlayer.classList.toggle('animate-spin-slow', isPlaying);
             }
         };
 
-        // --- محتوى التطبيقات (مدح راقٍ لـ وعد الحق كأحلى بنت في الجامعة) ---
         const appsData = {
             messages: {
                 title: "الرسائل",
@@ -374,7 +323,7 @@
                         </div>
                         <h2 class="text-2xl font-bold text-gray-800 mb-2">آه يا حلو</h2>
                         <p class="text-sm text-red-500 font-bold mb-6">إهداء راقٍ إلى وعد الحق</p>
-                        
+
                         <button onclick="toggleMusic()" class="bg-red-500 text-white p-5 rounded-full shadow-lg hover:bg-red-600 transition-all transform hover:scale-105 mb-6">
                             <svg id="music-play-icon" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
                             </svg>
@@ -437,34 +386,31 @@
             }
         };
 
-        // --- Clock & Date System (12-hour format in Arabic) ---
         function updateTime() {
             const now = new Date();
-            
             let hours = now.getHours();
             let minutes = now.getMinutes();
             const ampm = hours >= 12 ? 'م' : 'ص';
-            
+
             hours = hours % 12;
             hours = hours ? hours : 12;
             minutes = minutes < 10 ? '0' + minutes : minutes;
-            
+
             const timeString = `${hours}:${minutes}`;
-            
             document.getElementById('time-display').innerText = timeString;
             document.getElementById('status-time').innerText = timeString;
             document.getElementById('ampm-display').innerText = ampm;
 
             const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
             const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
-            
+
             const dayName = days[now.getDay()];
             const monthName = months[now.getMonth()];
             const dateNum = now.getDate();
-            
+
             const arabicNumerals = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
             const convertNum = (num) => String(num).split('').map(c => arabicNumerals[c] || c).join('');
-            
+
             document.getElementById('date-display').innerText = `${dayName}، ${convertNum(dateNum)} ${monthName}`;
             document.getElementById('cal-month').innerText = monthName;
             document.getElementById('cal-day').innerText = dateNum;
@@ -473,7 +419,6 @@
         setInterval(updateTime, 1000);
         updateTime();
 
-        // --- Interaction Logic ---
         const lockScreen = document.getElementById('lock-screen');
         const homeScreen = document.getElementById('home-screen');
         const appView = document.getElementById('app-view');
@@ -495,7 +440,6 @@
             if (startY - endY > 50) unlockPhone();
         });
 
-        // Open App
         window.openApp = function(appId) {
             const data = appsData[appId];
             if(!data) return;
@@ -505,7 +449,7 @@
                 ${data.icon || ''}
                 ${data.content}
             `;
-            
+
             appView.classList.add('app-open');
 
             if(appId === 'music') {
@@ -513,12 +457,10 @@
             }
         }
 
-        // Close App
         window.closeApp = function() {
             appView.classList.remove('app-open');
         }
 
-        // Generate Floating Sparkles on Lock Screen
         function createSparkles() {
             const container = document.getElementById('sparkles-container');
             const icons = ['✨', '⭐', '🌸'];
@@ -531,7 +473,7 @@
                     item.style.fontSize = (Math.random() * 10 + 12) + 'px';
                     item.style.animationDuration = (Math.random() * 5 + 5) + 's';
                     container.appendChild(item);
-                    
+
                     setTimeout(() => { item.remove(); }, 10000);
                 }, i * 900);
             }
